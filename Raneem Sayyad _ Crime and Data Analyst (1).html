@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raneem Sayyad | Crime and Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--sf:#fff;--ink:#12233a;--mu:#56677e;--ln:#d5dce6;--teal:#0f766e;--heat:#d8452a;--gold:#d99a2b;--r:14px;
+--serif:'Newsreader',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1827;--sf:#16253a;--ink:#e8eef6;--mu:#9db0c6;--ln:#26384f;--teal:#3cc4b6;--heat:#ff6a4d;--gold:#f0b44c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1827;--sf:#16253a;--ink:#e8eef6;--mu:#9db0c6;--ln:#26384f;--teal:#3cc4b6;--heat:#ff6a4d;--gold:#f0b44c;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.w{max-width:1120px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:16px;flex-wrap:wrap}
+nav b{font:600 20px var(--serif)}
+nav div{display:flex;gap:20px}
+nav a,nav button{color:var(--ink);text-decoration:none;font:500 15px var(--sans);background:none;border:0;cursor:pointer;padding:0}
+nav a:hover,nav button:hover{color:var(--teal)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:36px 0 64px}
+h1{font:400 clamp(36px,5.2vw,62px)/1.08 var(--serif);margin:0 0 20px;letter-spacing:-.01em}
+.lead{color:var(--mu);font-size:18px;max-width:34em;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font:600 15px var(--sans);text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:none;cursor:pointer}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--teal);color:var(--teal)}.btn.p:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.map{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);padding:10px}
+.map canvas{width:100%;aspect-ratio:12/7;display:block;border-radius:8px;cursor:crosshair}
+.map p{margin:8px 4px 2px;font-size:13px;color:var(--mu)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);overflow:hidden}
+.stats div{padding:20px;border-right:1px solid var(--ln)}.stats div:last-child{border:0}
+.stats b{display:block;font:400 38px/1 var(--serif)}.stats span{font-size:14px;color:var(--mu)}
+section{padding:72px 0 0}
+h2{font:400 clamp(28px,3.6vw,40px)/1.15 var(--serif);margin:0 0 10px}
+.sub{color:var(--mu);max-width:42em;margin:0 0 26px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;align-items:center}
+.chip{font:500 14px var(--sans);padding:7px 15px;border-radius:999px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"],.chip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.chip.st{cursor:default;color:var(--mu)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.card{all:unset;box-sizing:border-box;display:flex;flex-direction:column;background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--teal)}
+.card:focus-visible{outline:3px solid var(--teal)}
+.card svg{width:100%;display:block;background:color-mix(in srgb,var(--bg) 70%,var(--sf))}
+.card div{padding:16px 18px 18px}
+.card h3{font:600 19px/1.3 var(--serif);margin:0 0 6px}
+.card p{margin:0 0 12px;color:var(--mu);font-size:14.5px}
+.tg{display:flex;gap:6px;flex-wrap:wrap}.tg i{font:500 12px var(--sans);font-style:normal;padding:3px 10px;border-radius:999px;background:var(--bg);color:var(--mu)}
+.cw{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.co{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:4px 12px}
+.co b{font:600 15px var(--sans)}.co em{font:600 15px var(--serif);font-style:normal;color:var(--teal);align-self:start}
+.co small{grid-column:1/-1;color:var(--mu);font-size:13.5px}
+.co .lk{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.co .lk button{font:500 13px var(--sans);border:1px solid var(--heat);color:var(--heat);background:none;border-radius:999px;padding:3px 11px;cursor:pointer}
+.contact{display:flex;gap:14px;flex-wrap:wrap}
+footer{padding:64px 0 40px;color:var(--mu);font-size:14px}
+dialog{border:1px solid var(--ln);border-radius:18px;background:var(--sf);color:var(--ink);padding:0;width:min(720px,94vw);max-height:90vh}
+dialog::backdrop{background:rgba(8,16,28,.6)}
+dialog svg{width:100%;display:block}
+.dm{padding:22px 26px 28px}
+.dm h3{font:400 28px/1.2 var(--serif);margin:0 0 4px}
+.dm .k{color:var(--mu);margin:0 0 14px;font-size:14.5px}
+.dm h4{font:600 15px var(--sans);margin:18px 0 6px}
+.dm ul{margin:0;padding-left:20px}.dm li{margin:4px 0}
+.x{position:absolute;right:12px;top:12px;width:38px;height:38px;border-radius:50%;border:0;background:var(--sf);color:var(--ink);font-size:22px;cursor:pointer;line-height:1}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--ln)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+</style>
+</head>
+<body>
+<div class="w">
+<nav><b>Raneem Sayyad</b><div><button data-go="projects">Projects</button><button data-go="tools">Toolkit</button><button data-go="courses">Coursework</button><button data-go="contact">Contact</button></div></nav>
+
+<header class="hero">
+<div>
+<h1>Where crime concentrates, when it peaks, and what to do about it.</h1>
+<p class="lead">I am a crime and data analyst with an M.S. in Criminal Justice from George Mason University. I turn police and federal datasets into hotspot maps, forecasts, and tested findings that support patrol and policy decisions.</p>
+<div class="btns"><button class="btn p" data-go="projects">Explore projects</button><button class="btn" data-go="courses">See my coursework</button></div>
+</div>
+<div class="map"><canvas id="cv" width="960" height="560" aria-label="Interactive heat map. Move your pointer over it to create a hotspot."></canvas><p>Move across the map to create a hotspot of your own.</p></div>
+</header>
+
+<div class="stats">
+<div><b>4.0</b><span>M.S. GPA, Academic Excellence Award</span></div>
+<div><b>3.69</b><span>B.A. GPA, Cum Laude</span></div>
+<div><b>7</b><span>Dean’s List semesters</span></div>
+<div><b>8</b><span>Analysis projects, click any to explore</span></div>
+</div>
+
+<section id="projects">
+<h2>Projects</h2>
+<p class="sub">Each project comes from graduate coursework or independent work. Open a card for the question, the method, and a link to the full write-up.</p>
+<div class="bar" id="fb" role="group" aria-label="Filter projects"></div>
+<div class="grid" id="pg"></div>
+</section>
+
+<section id="tools">
+<h2>Toolkit</h2>
+<p class="sub">Select a tool to filter the projects where I used it.</p>
+<div class="bar" id="tb"></div>
+</section>
+
+<section id="courses">
+<h2>Coursework</h2>
+<p class="sub">The classes behind the work, from intelligence analysis and research methods to crime analysis and AI in criminal justice.</p>
+<div class="bar" id="cb" role="tablist"></div>
+<div class="cw" id="cl"></div>
+</section>
+
+<section id="contact">
+<h2>Let’s talk</h2>
+<p class="sub">Open to crime analyst, intelligence analyst, and research roles in Northern Virginia and the D.C. area.</p>
+<div class="contact">
+<a class="btn p" href="mailto:raneemsayyad5@gmail.com">Email me</a>
+<a class="btn" href="https://www.linkedin.com/in/rsayyad" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a class="btn" href="https://github.com/Rsayyad" target="_blank" rel="noopener noreferrer">GitHub</a>
+</div>
+</section>
+<footer>Raneem Sayyad, Ashburn, Virginia. Project data comes from public sources and law enforcement datasets used for academic analysis.</footer>
+</div>
+
+<dialog id="dg" aria-labelledby="dt"><button class="x" id="dx" aria-label="Close">×</button><div id="db"></div></dialog>
+
+<script>
+const B="https://rsayyad.github.io/Crime-Analysis-Portfolio/";
+const P=[
+{id:"sentinel",t:"Project Sentinel: Human Trafficking Dashboard",s:"A web app that maps trafficking reports, flags hotspots, and forecasts the next 12 months.",k:"Independent project, built with AI-assisted development",ty:"grid",cat:["Web app","Forecasting","Spatial"],tools:["ARIMA","K-means","FBI UCR"],
+q:"How do geographic and temporal patterns in FBI human trafficking data identify current hotspots and inform future reporting forecasts?",
+b:["Normalized offense counts with Census population data to compare states per 100,000 residents.","Used K-means clustering to sort states into Low, Medium, and High activity groups, and ARIMA for a 12-month reporting forecast.","Added a natural language query bar so analysts can ask questions like “Which three states saw the highest increase last year?” and get a visual answer.","Tested with null values for missing years and checked AI outputs against raw CSV totals."],
+d:"FBI Crime Data Explorer (6,490 records, 2013 to 2025), Polaris National Human Trafficking Hotline (2015 to 2024), U.S. Census ACS (2010 to 2024).",
+n:"Uses aggregate federal data only, with no personal information. Includes a disclaimer that figures reflect reported crime, not the full scale of trafficking.",
+L:[["Open live app","https://oculus-sentinel.netlify.app/"],["Data repository","https://github.com/Rsayyad/ucr-trafficking-data"]]},
+{id:"larceny",t:"Larceny Calls for Service: Neural Network Forecast",s:"Forecasting daily larceny calls for the City of Fairfax Police Department.",k:"CRIM 545 Crime Analysis, capstone project",ty:"wave",cat:["Forecasting","Spatial"],tools:["R","Neural network","ArcGIS"],
+q:"When and where should patrol attention go to get ahead of larceny?",
+b:["Analyzed 10,623 larceny calls from 2007 to 2025.","Built a univariate neural network in R to forecast daily calls through 2026.","Identified peak risk months, a weekday 1 to 4 PM window, and spatial hotspots."],d:"City of Fairfax Police Department calls for service.",L:[["Read the full project",B+"CRIM%20545%20Final%20Project%20Raneem%20Sayyad.html"]]},
+{id:"mvt",t:"Motor Vehicle Theft by Shift: Washington, D.C.",s:"Hotspots and ARIMA forecasts for day, evening, and midnight shifts.",k:"CRIM 545 Crime Analysis",ty:"line",cat:["Forecasting","Spatial"],tools:["R","ARIMA","ArcGIS"],
+q:"Do theft hotspots and volumes change by shift, and what should command staff expect in 2026?",
+b:["Ran separate hotspot analyses for each shift.","Generated 2026 ARIMA forecasts by shift with 95% confidence intervals.","Mapped persistent concentrations across Downtown, Anacostia, and Southeast D.C."],d:"Washington, D.C. crime data.",L:[["Read the full project",B+"CRIM%20545%20Project%203.html"]]},
+{id:"kde",t:"Spatial Crime Patterns: Sex Abuse, Vehicle Theft, and Arson",s:"Kernel density maps across three crime types in D.C.",k:"CRIM 545 Crime Analysis",ty:"blob",cat:["Spatial"],tools:["ArcGIS","KDE"],
+q:"Where does each crime type concentrate, and what does that mean for patrol deployment?",
+b:["Applied kernel density estimation and spatial clustering in ArcGIS.","Identified primary concentrations by neighborhood.","Translated patterns into resource allocation recommendations."],d:"Washington, D.C. crime data.",L:[["Read the full project",B+"CRIM%20545%20Project%202.html"]]},
+{id:"traffic",t:"Traffic Stop Forecasting: ARIMA Time Series",s:"Month-by-month forecasts to plan proactive patrols in Fairfax City.",k:"Time series and patrol planning",ty:"line",cat:["Forecasting","Spatial"],tools:["R","ARIMA"],
+q:"Which corridors will carry traffic enforcement demand in the coming months?",
+b:["Built an ARIMA model on 114,445 traffic stop records from 2007 to 2024.","Produced monthly forecasts that show shifting hotspot corridors.","Framed results for proactive patrol scheduling."],d:"Fairfax City Police Department calls for service.",L:[["Read the full project",B+"monthly-emergency-call-forecasting.html"]]},
+{id:"hate",t:"Hate Crime Trends After the Atlanta Spa Shooting",s:"Testing whether anti-Asian bias crime rose after March 2021.",k:"Statistical analysis of FBI UCR data",ty:"bars",cat:["Statistics"],tools:["FBI UCR","t-test"],
+q:"Did the March 2021 Atlanta Spa Shooting produce a statistically significant rise in anti-Asian hate crimes?",
+b:["Examined FBI UCR data from 2019 to 2023.","Applied t-tests and trend analysis to find temporal spikes.","Reviewed geographic concentrations and victim and offender characteristics."],d:"FBI Uniform Crime Reporting data, 2019 to 2023.",L:[["Read the full project",B+"hate-crime-analysis.html"]]},
+{id:"opioid",t:"Synthetic Opioid Distribution: MDS and K-Means",s:"Grouping states by opioid profile to see distribution patterns.",k:"Clustering and drug market analysis",ty:"scatter",cat:["Statistics","Spatial"],tools:["R","K-means","MDS","NFLIS"],
+q:"How does synthetic opioid use vary across states, and what might that say about trafficking networks?",
+b:["Analyzed 2022 NFLIS drug seizure data.","Applied multidimensional scaling and K-means clustering in R.","Linked state groupings to possible trafficking network structures."],d:"National Forensic Laboratory Information System (NFLIS), 2022.",L:[["Read the full project",B+"synthetic-opioid-analysis.html"]]},
+{id:"sonofsam",t:"Son of Sam: Serial Crime Forecast",s:"Predicting when and where a serial offender would strike next in New York City.",k:"CRIM 545 Crime Analysis, final project in Excel and ArcGIS",ty:"path",cat:["Forecasting","Spatial"],tools:["Excel","ArcGIS"],
+q:"Can behavioral, spatial, and temporal patterns in a serial crime series predict the next event closely enough to guide an intervention?",
+b:["Profiled the series: 7 events across 1976 and 1977 with 13 victims (5 murders and 8 non-fatal assaults), plus victim traits, suspect description, and modus operandi.","Mapped the series in ArcGIS, found the mean center, traced the movement from Forest Hills through Queens and the Bronx, and grouped the 7 events into 5 clusters.","Analyzed timing in Excel: a mean interval of 55 days (SD 21), 5 of 7 events on weekends, and most between midnight and 3 a.m.","Forecast the next event window (July 30 to September 10, 1977) and the most likely areas, then designed an intervention: interception in Cluster A, community outreach in Cluster B, and minimal patrols for the inactive clusters."],
+d:"Historical case records of the 1976 to 1977 New York City series, analyzed as a retrospective academic exercise.",L:[["Read the full project","https://github.com/Rsayyad/Crime-Analysis-Portfolio/blob/main/CRIM%20545%20Project%207.pdf"]]}];
+
+const G=[["CRIM 545","Crime Analysis","Fall 2025","A+","Hotspot mapping, KDE, and forecasting in R, Excel, and ArcGIS.",["larceny","mvt","kde","sonofsam"]],
+["CRIM 595","AI in Criminal Justice","Spring 2026","A+","",[]],["CRIM 517","Research Practicum in Justice Policy and Practice","Spring 2026","A+","",[]],
+["CRIM 515","CJ Research Methods and Data Analysis","Spring 2025","A+","Taken for graduate credit during the B.A.",[]],["CRIM 511","Evidence-based Crime and Justice Policy","Spring 2025","A+","Taken for graduate credit during the B.A.",[]],
+["CRIM 516","Evaluation of Crime and Justice Policy and Practice","Fall 2025","A+","",[]],["CRIM 513","Leadership in Justice Organizations","Spring 2026","A+","",[]],
+["CRIM 512","Implementing Crime and Justice Policy","Spring 2026","A","",[]],["CRIM 514","Legal and Ethical Issues in Criminal Justice","Fall 2025","A","",[]],["CRIM 595","Criminal Justice Reform","Fall 2025","A","",[]]];
+const U=[["CRIM 315","Research Methods and Analysis in Criminology","Spring 2024","A+","",[]],["CRIM 312","Intelligence Analysis Techniques","Spring 2024","A+","",[]],
+["CRIM 310","Introduction to the Intelligence Community","Spring 2023","A+","",[]],["CRIM 462","Law Enforcement and Homeland Security","Fall 2024","A+","",[]],["CRIM 400","Applied Criminal Psychology","Fall 2023","A+","",[]],
+["CRIM 495","Capstone in Criminology, Law and Society","Fall 2024","A","",[]],["CRIM 306","Criminal Justice Ethics","Fall 2023","A","",[]],["CRIM 402","Punishment and Corrections","Fall 2024","A","",[]],
+["CRIM 405","Law and Justice Around the World","Fall 2024","A","",[]],["CRIM 490","Gender and Crime","Spring 2024","A","",[]],["CRIM 424","Constitutional Law: Criminal Procedure and Rights","Summer 2024","A-","",[]],["ARAB 202","Intermediate Arabic II","Summer 2024","A+","",[]]];
+
+const $=i=>document.getElementById(i);
+function R(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function thumb(ty,seed,id){const r=R(seed);let o=`<svg viewBox="0 0 320 180" role="img" aria-hidden="true">`;
+if(ty==="grid"){const c=[[5,3],[12,6],[15,2]];for(let i=0;i<18;i++)for(let j=0;j<10;j++){let v=0;c.forEach(([a,b])=>v+=Math.exp(-((i-a)**2+(j-b)**2)/9));v=Math.min(1,v+r()*.18);o+=`<rect x="${i*17.7+1}" y="${j*17.6+1}" width="15.5" height="15.5" rx="3" fill="var(--heat)" opacity="${(.1+v*.9).toFixed(2)}"/>`}}
+else if(ty==="blob"){for(let i=0;i<9;i++)o+=`<path d="M0 ${i*22}H320" stroke="var(--ln)"/><path d="M${i*40} 0V180" stroke="var(--ln)"/>`;o+=`<defs><radialGradient id="g${id}"><stop offset="0" stop-color="var(--heat)" stop-opacity=".85"/><stop offset="1" stop-color="var(--heat)" stop-opacity="0"/></radialGradient></defs>`;for(let i=0;i<6;i++)o+=`<circle cx="${30+r()*260}" cy="${25+r()*130}" r="${28+r()*38}" fill="url(#g${id})"/>`}
+else if(ty==="scatter"){const cs=["var(--heat)","var(--teal)","var(--gold)"],ct=[[90,60],[220,90],[130,140]];for(let k=0;k<3;k++){o+=`<circle cx="${ct[k][0]}" cy="${ct[k][1]}" r="42" fill="${cs[k]}" opacity=".12"/>`;for(let i=0;i<16;i++)o+=`<circle cx="${ct[k][0]+(r()-.5)*70}" cy="${ct[k][1]+(r()-.5)*60}" r="4.5" fill="${cs[k]}"/>`}}
+else if(ty==="path"){const ps=[[60,125],[125,95],[185,72],[235,108],[285,45]];o+=`<circle cx="160" cy="95" r="78" fill="none" stroke="var(--ln)"/><circle cx="160" cy="95" r="42" fill="none" stroke="var(--ln)"/><polyline points="${ps.map(p=>p.join(",")).join(" ")}" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="5 4"/>`+ps.map(([a,b],i)=>`<circle cx="${a}" cy="${b}" r="${i?9:14}" fill="var(--heat)" opacity="${i?.7:.9}"/>`).join("")}
+else if(ty==="bars"){for(let i=0;i<14;i++){const h=40+r()*30+(i>=7?45+r()*40:0);o+=`<rect x="${14+i*21.5}" y="${165-h}" width="15" height="${h}" rx="3" fill="${i>=7?"var(--heat)":"var(--teal)"}" opacity=".85"/>`}o+=`<path d="M154 12V168" stroke="var(--ink)" stroke-dasharray="4 4"/>`}
+else{let a="",up="",lo="",fx=210;for(let i=0;i<=20;i++){const x=i*16,y=95-Math.sin(i*.7)*(ty==="wave"?32:14)-i*(ty==="wave"?0:1.5)+(r()-.5)*(ty==="wave"?22:10);if(x<=fx)a+=(a?"L":"M")+x+" "+y.toFixed(1)}
+o+=`<path d="${a}" fill="none" stroke="var(--teal)" stroke-width="3"/>`;let fp="";const pts=[];for(let x=fx;x<=320;x+=16)pts.push([x,95-Math.sin(x/16*.7)*(ty==="wave"?32:14)]);o+=`<polygon points="${pts.map(([x,y])=>x+","+(y-((x-fx)*.5+6))).join(" ")} ${pts.reverse().map(([x,y])=>x+","+(y+((x-fx)*.5+6))).join(" ")}" fill="var(--heat)" opacity=".18"/><path d="M${pts.reverse().map(([x,y])=>x+" "+y).join("L")}" fill="none" stroke="var(--heat)" stroke-width="3" stroke-dasharray="6 5"/><path d="M${fx} 10V170" stroke="var(--ln)"/>`}
+return o+"</svg>"}
+
+let cur="All";
+function renderP(){const f=cur;$("pg").innerHTML=P.filter(p=>f==="All"||p.cat.includes(f)||p.tools.includes(f)).map(p=>`<button class="card" data-p="${p.id}">${thumb(p.ty,p.id.length*97+p.id.charCodeAt(0),p.id)}<div><h3>${p.t}</h3><p>${p.s}</p><span class="tg">${p.cat.map(c=>`<i>${c}</i>`).join("")}</span></div></button>`).join("");
+document.querySelectorAll("#fb .chip,#tb .chip[data-f]").forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===f))}
+function setF(f,scroll){cur=f;renderP();if(scroll)$("projects").scrollIntoView({behavior:"smooth"})}
+["All","Web app","Forecasting","Spatial","Statistics"].forEach(f=>{const b=document.createElement("button");b.className="chip";b.dataset.f=f;b.textContent=f;b.onclick=()=>setF(f);$("fb").appendChild(b)});
+["R","ArcGIS","ARIMA","Neural network","K-means","MDS","KDE","t-test","FBI UCR","NFLIS","Excel"].forEach(f=>{const b=document.createElement("button");b.className="chip";b.dataset.f=f;b.textContent=f;b.onclick=()=>setF(f,true);$("tb").appendChild(b)});
+["Tableau","Time series","Regression"].forEach(f=>{const s=document.createElement("span");s.className="chip st";s.textContent=f;$("tb").appendChild(s)});
+
+function open(id){const p=P.find(x=>x.id===id);$("db").innerHTML=thumb(p.ty,p.id.length*97+p.id.charCodeAt(0),"m"+p.id)+`<div class="dm"><h3 id="dt">${p.t}</h3><p class="k">${p.k}</p><h4>The question</h4><p>${p.q}</p><h4>What I did</h4><ul>${p.b.map(x=>`<li>${x}</li>`).join("")}</ul><h4>Data</h4><p>${p.d}</p>${p.n?`<h4>Ethics</h4><p>${p.n}</p>`:""}<div class="btns" style="margin-top:20px">${p.L.map((l,i)=>`<a class="btn ${i?"":"p"}" href="${l[1]}" target="_blank" rel="noopener noreferrer">${l[0]}</a>`).join("")}</div></div>`;$("dg").showModal()}
+$("pg").onclick=e=>{const c=e.target.closest("[data-p]");if(c)open(c.dataset.p)};
+$("dx").onclick=()=>$("dg").close();
+$("dg").onclick=e=>{if(e.target===$("dg"))$("dg").close()};
+
+let tab="Graduate";
+function renderC(){const L=tab==="Graduate"?G:U;$("cl").innerHTML=L.map(c=>`<div class="co"><b>${c[0]}  ${c[1]}</b><em>${c[3]}</em><small>${c[2]}${c[4]?". "+c[4]:""}</small>${c[5].length?`<div class="lk">${c[5].map(i=>`<button data-p="${i}">${P.find(p=>p.id===i).t.split(":")[0]}</button>`).join("")}</div>`:""}</div>`).join("");
+document.querySelectorAll("#cb .chip").forEach(c=>c.setAttribute("aria-selected",c.textContent===tab)||c.classList.toggle("on",c.textContent===tab))}
+["Graduate","Undergraduate"].forEach(t=>{const b=document.createElement("button");b.className="chip";b.setAttribute("role","tab");b.textContent=t;b.onclick=()=>{tab=t;renderC()};$("cb").appendChild(b)});
+$("cl").onclick=e=>{const c=e.target.closest("[data-p]");if(c)open(c.dataset.p)};
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>$(b.dataset.go).scrollIntoView({behavior:"smooth"}));
+renderP();renderC();
+
+/* hero heat map */
+const cv=$("cv"),x=cv.getContext("2d"),W=24,H=14,still=matchMedia("(prefers-reduced-motion:reduce)").matches;let m=null;
+const col=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+cv.onpointermove=e=>{const r=cv.getBoundingClientRect();m=[(e.clientX-r.left)/r.width*W,(e.clientY-r.top)/r.height*H];if(still)draw(0)};
+cv.onpointerleave=()=>{m=null;if(still)draw(0)};
+function draw(t){const cw=cv.width/W,ch=cv.height/H,heat=col("--heat")||"#d8452a",ln=col("--ln")||"#ccc";x.clearRect(0,0,cv.width,cv.height);
+const c=[[6+Math.sin(t/2400)*2,4+Math.cos(t/3100)],[16+Math.cos(t/2900)*2,9+Math.sin(t/2200)],[20,3+Math.sin(t/3500)]];if(m)c.push([m[0],m[1],2]);
+for(let i=0;i<W;i++)for(let j=0;j<H;j++){let v=0;c.forEach(p=>v+=Math.exp(-((i+.5-p[0])**2+(j+.5-p[1])**2)/(p[2]?5:7))*(p[2]?1.3:1));v=Math.min(1,v);
+x.globalAlpha=1;x.fillStyle=ln;x.globalAlpha=.35;x.beginPath();x.roundRect(i*cw+2,j*ch+2,cw-4,ch-4,5);x.fill();x.fillStyle=heat;x.globalAlpha=v*.95;x.beginPath();x.roundRect(i*cw+2,j*ch+2,cw-4,ch-4,5);x.fill()}}
+function loop(t){draw(t);requestAnimationFrame(loop)}
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>still?draw(0):requestAnimationFrame(loop));
+matchMedia("(prefers-color-scheme:dark)").onchange=()=>still&&draw(0);
+</script>
+</body>
+</html>
